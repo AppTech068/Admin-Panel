@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 
 // @mui material components
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
@@ -19,7 +19,7 @@ function Footer({ company, links }) {
   const renderLinks = () =>
     links.map((link) => (
       <MDBox key={link.name} component="li" px={2} lineHeight={1}>
-        <Link href={link.href} target="_blank">
+        <Link to={link.href}>
           <MDTypography variant="button" fontWeight="regular" color="text">
             {link.name}
           </MDTypography>
@@ -36,7 +36,7 @@ function Footer({ company, links }) {
       alignItems="center"
       px={1.5}
     >
-      <MDBox
+      {/* <MDBox
         display="flex"
         justifyContent="center"
         alignItems="center"
@@ -58,7 +58,7 @@ function Footer({ company, links }) {
           </MDTypography>
         </Link>
         for a better web.
-      </MDBox>
+      </MDBox> */}
       <MDBox
         component="ul"
         sx={({ breakpoints }) => ({
@@ -84,12 +84,11 @@ function Footer({ company, links }) {
 
 // Setting default values for the props of Footer
 Footer.defaultProps = {
-  company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
+  company: { href: "", name: "" },
   links: [
-    { href: "https://www.creative-tim.com/", name: "Creative Tim" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
+    { href: "", name: "Home" },
+    { href: "", name: "About Us" },
+    { href: "", name: "Blog" },
   ],
 };
 
